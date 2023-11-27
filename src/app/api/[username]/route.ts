@@ -13,4 +13,4 @@ export default async function handler(req, res) {
 
   return NextResponse.json({ user });
 }
-export { handler as GET, handler as POST };
+export { handler as POST };
