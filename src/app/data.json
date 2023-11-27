@@ -1,0 +1,124 @@
+{
+  "workouts": [
+    {
+      "day": "Day 1",
+      "exercises": [
+        {
+          "name": "Squats",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Bench Press",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Deadlifts",
+          "sets": 3,
+          "reps": 8
+        },
+        {
+          "name": "Overhead Press",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Bent-over Rows",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Pull-ups",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Plank",
+          "sets": 3,
+          "reps": "30 seconds hold"
+        }
+      ]
+    },
+    {
+      "day": "Day 2",
+      "exercises": [
+        {
+          "name": "Lunges",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Incline Bench Press",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Romanian Deadlifts",
+          "sets": 3,
+          "reps": 8
+        },
+        {
+          "name": "Dumbbell Shoulder Press",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Renegade Rows",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Lat Pulldowns",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Russian Twists",
+          "sets": 3,
+          "reps": 15
+        }
+      ]
+    },
+    {
+      "day": "Day 3",
+      "exercises": [
+        {
+          "name": "Front Squats",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Close Grip Bench Press",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Sumo Deadlifts",
+          "sets": 3,
+          "reps": 8
+        },
+        {
+          "name": "Side Lateral Raises",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Face Pulls",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Chin-ups",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Hollow Body Hold",
+          "sets": 3,
+          "reps": "30 seconds hold"
+        }
+      ]
+    }
+  ]
+}
