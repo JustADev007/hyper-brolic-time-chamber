@@ -3,8 +3,8 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function groupByDay(data) {
-  return data.reduce((result, exercise) => {
+function groupByDay(d: any) {
+  return d.reduce((result: any, exercise: any) => {
     const { day } = exercise;
 
     if (!result[day]) {
