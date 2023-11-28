@@ -98,7 +98,7 @@ export default function Form() {
                   Confirm Password
                 </label>
                 <input
-                  type="confirm-password"
+                  type="password"
                   name="confrim-password"
                   id="confrim-password"
                   placeholder="••••••••"

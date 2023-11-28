@@ -7,32 +7,26 @@ import axios from "axios";
 
 const questions = [
   {
+    question: "Workout Split",
+    answer1: "Fullbody",
+    answer2: "Push,Pull,Legs",
+    answer3: "Upper/Lower",
+    answer4: "Bro",
+  },
+  {
     question: "What muscle group would you like to focus",
     answer1: " Chest",
     answer2: "Legs",
     answer3: "Back",
     answer4: "Arms",
   },
+
   {
     question: "How many days a week?",
     answer1: " 1-2",
     answer2: "3-4",
     answer3: "5",
     answer4: "6",
-  },
-  {
-    question: "Question 3",
-    answer1: " Answer1",
-    answer2: "Answer2",
-    answer3: "Answer3",
-    answer4: "Answer4",
-  },
-  {
-    question: "Question 4",
-    answer1: " Answer1",
-    answer2: "Answer2",
-    answer3: "Answer3",
-    answer4: "Answer4",
   },
 ];
 
@@ -41,19 +35,20 @@ export default function Page() {
   const router = useRouter();
   const [index, setIndex] = useState(0);
   const [arr, setArr] = useState([]);
-  const userArr = { username };
+  const userArr = { username, stack: "Fullbody" };
   console.log(username);
   const increase = async (e) => {
     e.preventDefault();
-    if (index === 3) {
+    if (index === 1) {
       await axios.post("http://localhost:3000/api/test", userArr);
     }
-    if (index === 4) {
+    if (index === 2) {
       router.push(`/`);
       router.refresh();
     }
     if (arr.length === 0) {
       setArr([e.target.value]);
+
       console.log("here", e.target.value);
     } else {
       setArr((oldValue) => [...oldValue, e.target.value]);

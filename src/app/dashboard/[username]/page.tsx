@@ -23,8 +23,11 @@ export default function DashboardPage() {
   const { username } = useParams();
   console.log(username);
   const arr = { username };
-  const switchDays = () => {
+  const increaseDays = () => {
     setIndex((oldIndex) => oldIndex + 1);
+  };
+  const decreaseDays = () => {
+    setIndex((oldIndex) => oldIndex - 1);
   };
 
   useEffect(() => {
@@ -44,6 +47,9 @@ export default function DashboardPage() {
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
+      <div className="flex justify-center">
+        <h1 className="text-2xl">Hello {username}</h1>
+      </div>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img
@@ -57,8 +63,8 @@ export default function DashboardPage() {
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className="flex justify-between items-center">
               <div>
-                <button>{"<"}</button>
-                <button onClick={switchDays}>{">"}</button>
+                <button onClick={decreaseDays}>{"<"}</button>
+                <button onClick={increaseDays}>{">"}</button>
               </div>
 
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
