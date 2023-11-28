@@ -19,15 +19,15 @@ function groupByDay(d: any) {
 
 export default function DashboardPage() {
   const [program, setProgram] = useState([]);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState<number>(1);
   const { username } = useParams();
   console.log(username);
   const arr = { username };
   const increaseDays = () => {
-    setIndex((oldIndex) => oldIndex + 1);
+    setIndex((oldIndex: number) => oldIndex + 1);
   };
   const decreaseDays = () => {
-    setIndex((oldIndex) => oldIndex - 1);
+    setIndex((oldIndex: number) => oldIndex - 1);
   };
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function DashboardPage() {
 
             <div className="space-y-4 md:space-y-6 flex flex-col">
               <div className="flex flex-col items-center">
-                {program[`Day ${index}`]?.map((each) => {
+                {program[`Day ${index<number>}`]?.map((each: any) => {
                   return (
                     <>
                       <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
