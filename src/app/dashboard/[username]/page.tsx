@@ -74,7 +74,7 @@ export default function DashboardPage() {
 
             <div className="space-y-4 md:space-y-6 flex flex-col">
               <div className="flex flex-col items-center">
-                {program[`Day ${index<number>}`]?.map((each: any) => {
+                {program[`Day ${index}`]?.map((each: any) => {
                   return (
                     <>
                       <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
