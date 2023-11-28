@@ -20,6 +20,7 @@ function groupByDay(d: any) {
 export default function DashboardPage() {
   const [program, setProgram] = useState([]);
   const [index, setIndex] = useState<number>(1);
+  const hello = "Hello World";
   const { username } = useParams();
   console.log(username);
   const arr = { username };
