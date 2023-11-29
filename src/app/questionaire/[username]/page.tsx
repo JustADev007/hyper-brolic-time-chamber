@@ -47,6 +47,7 @@ export default function Page() {
       router.refresh();
     }
     if (arr.length === 0) {
+      userArr.stack = e.target.value;
       setArr([e.target.value]);
 
       console.log("here", e.target.value);
