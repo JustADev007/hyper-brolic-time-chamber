@@ -15,10 +15,10 @@ const questions = [
   },
   {
     question: "What muscle group would you like to focus",
-    answer1: " Chest",
-    answer2: "Legs",
-    answer3: "Back",
-    answer4: "Arms",
+    answer1: "Strength",
+    answer2: "Hypertrophy",
+    answer3: "Power",
+    answer4: "Endurance",
   },
 
   {
@@ -35,19 +35,23 @@ export default function Page() {
   const router = useRouter();
   const [index, setIndex] = useState(0);
   const [arr, setArr] = useState([]);
-  const userArr = { username, stack: "Fullbody" };
+  const [userArr, setUserArr] = useState({ username });
   console.log(username);
-  const increase = async (e) => {
+  const increase = async (e: any) => {
     e.preventDefault();
     if (index === 1) {
-      await axios.post("http://localhost:3000/api/test", userArr);
+      setUserArr((prevState) => ({ ...prevState, intensity: e.target.value }));
+      console.log(userArr);
     }
     if (index === 2) {
+      console.log(userArr);
+      await axios.post("http://localhost:3000/api/test", userArr);
       router.push(`/`);
       router.refresh();
     }
     if (arr.length === 0) {
-      userArr.stack = e.target.value;
+      const stack = e.target.value;
+      setUserArr({ username, stack });
       setArr([e.target.value]);
 
       console.log("here", e.target.value);
