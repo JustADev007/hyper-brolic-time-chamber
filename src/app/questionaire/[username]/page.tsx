@@ -45,7 +45,7 @@ export default function Page() {
     }
     if (index === 2) {
       console.log(userArr);
-      await axios.post("http://localhost:3000/api/test", userArr);
+      await axios.post("/api/test", userArr);
       router.push(`/`);
       router.refresh();
     }
