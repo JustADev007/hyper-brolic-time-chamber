@@ -32,10 +32,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.post(
-        `http://localhost:3000/api/${username}`,
-        arr,
-      );
+      const response = await axios.post(`/api/${username}`, arr);
       const day1 = groupByDay(response.data.user);
 
       console.log(day1[`Day ${index}`]);
