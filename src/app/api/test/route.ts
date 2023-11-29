@@ -58,6 +58,6 @@ export async function POST(req: Request) {
  FROM ul_hypertrophy_split;`;
     const user = response.rows;
 
-    return NextResponse.json({ user });
+    return NextResponse.json({ status: 200, user });
   }
 }
