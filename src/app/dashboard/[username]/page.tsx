@@ -51,7 +51,7 @@ export default function DashboardPage() {
           </div>
           <div className="w-1/2">
             <h1 className="text-3xl">Hello {username}</h1>
-            <p>"Motivation gets you going. Discipline keeps you growing"</p>
+            <p>Motivation gets you going. Discipline keeps you growing</p>
           </div>
         </div>
 
