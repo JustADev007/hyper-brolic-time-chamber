@@ -1,4 +1,6 @@
 "use client";
+import { signOut } from "next-auth/react";
+
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -53,16 +55,24 @@ export default function DashboardPage() {
           height={250}
         />
         <div className="w-1/4">
-          <h2 className="w-2/3 text-black bg-white px-6 py-4 rounded-full">
+          <button
+            onClick={() => {
+              signOut();
+            }}
+            className="bg-white text-black rounded-full px-6 py-2"
+          >
+            {" "}
             Logout
-          </h2>
+          </button>
         </div>
       </div>
 
       <div className="flex flex-col items-center justify-center px-6 sm:h-full py-8 mx-auto md:h-full lg:py-0">
         <div className="flex flex-row justify-between items-center mb-8">
           <div className="w-1/2 flex justify-center items-center h-full ">
-            <div className="h-24 w-24 bg-gray-100 rounded-full"></div>
+            <div className="h-24 w-24  rounded-full bg-gradient-to-r from-purple-700 via-red-600 to-yellow-500 flex justify-center items-center">
+              <div className="h-20 w-20 rounded-full  bg-gray-100"></div>
+            </div>
           </div>
           <div className="w-1/2">
             <h1 className="text-3xl">Hello {username}</h1>
