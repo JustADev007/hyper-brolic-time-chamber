@@ -92,13 +92,13 @@ export default function DashboardPage() {
             <div className="flex justify-between items-center">
               <div>
                 <button
-                  className="text-2xl ml-2 font-bold"
+                  className="text-3xl ml-2 font-bold"
                   onClick={decreaseDays}
                 >
                   {"<"}
                 </button>
                 <button
-                  className="text-2xl ml-2 font-bold"
+                  className="text-3xl ml-4 font-bold"
                   onClick={increaseDays}
                 >
                   {">"}
