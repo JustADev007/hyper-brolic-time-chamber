@@ -21,13 +21,16 @@ export async function POST(req: Request) {
   }
   if (stack == "Push,Pull,Legs") {
     const response =
-      await sql`INSERT INTO user_workout (username, day, exercise_name, sets, reps)
+      await sql`INSERT INTO user_workout (username, day, exercise_name, sets, reps, category, video)
  SELECT 
     ${username} as username,
     day,
     exercise_name,
     sets,
-    reps
+    reps,
+    category,
+    video
+ 
  FROM ppl_workout;`;
     const user = response.rows;
 
@@ -46,7 +49,8 @@ export async function POST(req: Request) {
     const user = response.rows;
 
     return NextResponse.json({ user });
-  } else if (stack == "Upper/Lower" && intensity == "Hypertrophy") {
+  }
+  if (stack == "Upper/Lower" && intensity == "Hypertrophy") {
     const response =
       await sql`INSERT INTO user_workout (username, day, exercise_name, sets, reps)
  SELECT 
@@ -56,6 +60,19 @@ export async function POST(req: Request) {
     sets,
     reps
  FROM ul_hypertrophy_split;`;
+    const user = response.rows;
+
+    return NextResponse.json({ status: 200, user });
+  } else {
+    const response =
+      await sql`INSERT INTO user_workout (username, day, exercise_name, sets, reps)
+ SELECT 
+    ${username} as username,
+    day,
+    exercise_name,
+    sets,
+    reps
+ FROM bro_split_workout;`;
     const user = response.rows;
 
     return NextResponse.json({ status: 200, user });

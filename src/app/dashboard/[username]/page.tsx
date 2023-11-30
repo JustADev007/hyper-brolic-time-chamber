@@ -1,7 +1,7 @@
 "use client";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { redirect } from "next/navigation";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -30,10 +30,13 @@ export default function DashboardPage() {
   console.log(username);
   const arr = { username };
   const increaseDays = () => {
-    setIndex((oldIndex: number) => oldIndex + 1);
+    if (index < Object.keys(program).length)
+      setIndex((oldIndex: number) => oldIndex + 1);
   };
   const decreaseDays = () => {
-    setIndex((oldIndex: number) => oldIndex - 1);
+    if (index > 1) {
+      setIndex((oldIndex: number) => oldIndex - 1);
+    }
   };
 
   useEffect(() => {
@@ -57,13 +60,11 @@ export default function DashboardPage() {
           width={250}
           height={250}
         />
-        <div className="w-1/4">
+        <div className="w-1/4 mr-6">
           <button
             onClick={(e) => {
               e.preventDefault();
-              signOut();
-              router.push(`/`);
-              router.refresh();
+              signOut({ callbackUrl: "/" });
             }}
             className="bg-white text-black rounded-full px-6 py-2"
           >
@@ -90,8 +91,18 @@ export default function DashboardPage() {
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className="flex justify-between items-center">
               <div>
-                <button onClick={decreaseDays}>{"<"}</button>
-                <button onClick={increaseDays}>{">"}</button>
+                <button
+                  className="text-2xl ml-2 font-bold"
+                  onClick={decreaseDays}
+                >
+                  {"<"}
+                </button>
+                <button
+                  className="text-2xl ml-2 font-bold"
+                  onClick={increaseDays}
+                >
+                  {">"}
+                </button>
               </div>
 
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -100,6 +111,8 @@ export default function DashboardPage() {
             </div>
 
             <div className="space-y-4 md:space-y-6 flex flex-col">
+              <h2 className="text-center text-2xl">Schedule</h2>
+
               {program[`Day ${index}`]?.map((each: any) => {
                 console.log(each.video);
                 return (
