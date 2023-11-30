@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -43,8 +44,22 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <section className="bg-my-queen-black sm:h-screen ">
-      <div className="flex flex-col items-center justify-center px-6 sm:h-screen py-8 mx-auto md:h-screen lg:py-0">
+    <section className="bg-my-queen-black sm:h-full ">
+      <div className="flex flex-row justify-between items-center">
+        <Image
+          src="/hyperbrolic-tc-logo-transparent.svg"
+          alt="logo"
+          width={250}
+          height={250}
+        />
+        <div className="w-1/4">
+          <h2 className="w-2/3 text-black bg-white px-6 py-4 rounded-full">
+            Logout
+          </h2>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center justify-center px-6 sm:h-full py-8 mx-auto md:h-full lg:py-0">
         <div className="flex flex-row justify-between items-center mb-8">
           <div className="w-1/2 flex justify-center items-center h-full ">
             <div className="h-24 w-24 bg-gray-100 rounded-full"></div>
@@ -78,7 +93,10 @@ export default function DashboardPage() {
                         {each.exercise_name}
                       </h3>
                       <p className="block mb-2 text-sm font-medium text-black">
-                        {`${each.sets} x ${each.reps}`}
+                        {`Sets: ${each.sets}`}
+                      </p>
+                      <p className="block mb-2 text-sm font-medium text-black">
+                        {`Reps: ${each.reps}`}
                       </p>
                       {/*<iframe
                         src="https://www.youtube.com/embed/eGo4IYlbE5g"
