@@ -105,7 +105,7 @@ export default function DashboardPage() {
                 </button>
               </div>
 
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white">
                 {`Day ${index}`}
               </h1>
             </div>
