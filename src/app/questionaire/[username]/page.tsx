@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -7,14 +8,14 @@ import axios from "axios";
 
 const questions = [
   {
-    question: "Workout Split",
+    question: "What workout split would you like?",
     answer1: "Fullbody",
     answer2: "Push,Pull,Legs",
     answer3: "Upper/Lower",
     answer4: "Bro",
   },
   {
-    question: "What muscle group would you like to focus",
+    question: "What type of training would you like to focus on?",
     answer1: "Strength",
     answer2: "Hypertrophy",
     answer3: "Power",
@@ -22,11 +23,11 @@ const questions = [
   },
 
   {
-    question: "How many days a week?",
-    answer1: " 1-2",
-    answer2: "3-4",
-    answer3: "5",
-    answer4: "6",
+    question: "What muscle group would you like to emphasize?",
+    answer1: "Chest",
+    answer2: "Legs",
+    answer3: "Back",
+    answer4: "Arms",
   },
 ];
 
@@ -64,9 +65,15 @@ export default function Page() {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900">
+      <section className="bg-my-queen-black sm:h-full">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <Image
+            src="/hyperbrolic-tc-logo-transparent.svg"
+            alt="logo"
+            width={300}
+            height={300}
+          />
+          <div className="w-full bg-my-queen-gray rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0  ">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 {questions[index]?.question}

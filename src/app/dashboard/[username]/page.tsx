@@ -1,10 +1,12 @@
 "use client";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ModalVideo from "@/app/components/Modal/Modal";
 
 function groupByDay(d: any) {
   return d.reduce((result: any, exercise: any) => {
@@ -21,6 +23,7 @@ function groupByDay(d: any) {
 }
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [program, setProgram] = useState([]);
   const [index, setIndex] = useState(1);
   const { username } = useParams();
@@ -56,8 +59,11 @@ export default function DashboardPage() {
         />
         <div className="w-1/4">
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               signOut();
+              router.push(`/`);
+              router.refresh();
             }}
             className="bg-white text-black rounded-full px-6 py-2"
           >
@@ -71,11 +77,11 @@ export default function DashboardPage() {
         <div className="flex flex-row justify-between items-center mb-8">
           <div className="w-1/2 flex justify-center items-center h-full ">
             <div className="h-24 w-24  rounded-full bg-gradient-to-r from-purple-700 via-red-600 to-yellow-500 flex justify-center items-center">
-              <div className="h-20 w-20 rounded-full  bg-gray-100"></div>
+              <div className="h-[5.5rem] w-[5.5rem] rounded-full  bg-gray-100"></div>
             </div>
           </div>
           <div className="w-1/2">
-            <h1 className="text-3xl">Hello {username}</h1>
+            <h1 className="text-3xl">Welcome, {username}</h1>
             <p>Motivation gets you going. Discipline keeps you growing</p>
           </div>
         </div>
@@ -108,7 +114,10 @@ export default function DashboardPage() {
                       <p className="block mb-2 text-sm font-medium text-black">
                         {`Reps: ${each.reps}`}
                       </p>
-                      {/*<iframe
+                      {/*
+
+                      <ModalVideo />
+                      <iframe
                         src="https://www.youtube.com/embed/eGo4IYlbE5g"
                         frameborder="0"
                         allow="autoplay; encrypted-media"

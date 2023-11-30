@@ -3,6 +3,7 @@ import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
+import Image from "next/image";
 
 export default function Form() {
   const router = useRouter();
@@ -23,9 +24,16 @@ export default function Form() {
   };
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900">
+      <section className="bg-my-queen-black sm:h-full">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <Image
+            src="/hyperbrolic-tc-logo-transparent.svg"
+            alt="logo"
+            width={350}
+            height={350}
+          />
+
+          <div className="w-full bg-my-queen-gray rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 sm:h-full">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Sign in to your account
@@ -38,7 +46,7 @@ export default function Form() {
                 <div>
                   <label
                     htmlFor="username"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-white"
                   >
                     Username / Email
                   </label>
@@ -53,7 +61,7 @@ export default function Form() {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-white"
                   >
                     Password
                   </label>
