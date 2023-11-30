@@ -43,20 +43,19 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex justify-center">
-        <h1 className="text-2xl">Hello {username}</h1>
-      </div>
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img
-            className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-            alt="logo"
-          />
-          Schedule
-        </a>
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <section className="bg-my-queen-black sm:h-screen ">
+      <div className="flex flex-col items-center justify-center px-6 sm:h-screen py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-row justify-between items-center mb-8">
+          <div className="w-1/2 flex justify-center items-center h-full ">
+            <div className="h-24 w-24 bg-gray-100 rounded-full"></div>
+          </div>
+          <div className="w-1/2">
+            <h1 className="text-3xl">Hello {username}</h1>
+            <p>"Motivation gets you going. Discipline keeps you growing"</p>
+          </div>
+        </div>
+
+        <div className="w-full bg-my-queen-gray rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0  ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <div className="flex justify-between items-center">
               <div>
@@ -70,20 +69,29 @@ export default function DashboardPage() {
             </div>
 
             <div className="space-y-4 md:space-y-6 flex flex-col">
-              <div className="flex flex-col items-center">
-                {program[`Day ${index}`]?.map((each: any) => {
-                  return (
-                    <>
-                      <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              {program[`Day ${index}`]?.map((each: any) => {
+                console.log(each.video);
+                return (
+                  <>
+                    <div className="flex flex-col items-center bg-white mb-2 rounded-lg py-2">
+                      <h3 className="block mb-2 text-sm font-medium text-black">
                         {each.exercise_name}
                       </h3>
-                      <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      <p className="block mb-2 text-sm font-medium text-black">
                         {`${each.sets} x ${each.reps}`}
                       </p>
-                    </>
-                  );
-                })}
-              </div>
+                      {/*<iframe
+                        src="https://www.youtube.com/embed/eGo4IYlbE5g"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen
+                        title="video"
+                      />{" "}
+*/}{" "}
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
